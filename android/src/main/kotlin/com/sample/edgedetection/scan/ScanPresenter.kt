@@ -57,7 +57,7 @@ class ScanPresenter constructor(
     private val proxySchedule: Scheduler
     private var busy: Boolean = false
     private var mCameraLensFacing: String? = null
-    private var flashEnabled: Boolean = false;
+    private var flashEnabled: Boolean = true;
 
     private var mLastClickTime = 0L
     private var shutted: Boolean = true
@@ -220,7 +220,7 @@ class ScanPresenter constructor(
         } else {
             Log.d(TAG, "autofocus not available")
         }
-        param?.flashMode = Camera.Parameters.FLASH_MODE_OFF
+        param?.flashMode = Camera.Parameters.FLASH_MODE_TORCH
 
         mCamera?.parameters = param
         mCamera?.setDisplayOrientation(90)
